@@ -1,9 +1,9 @@
 require 'menu'
 
 describe Menu do
+  subject(:menu) { described_class.new('./data/menu.json') }
+    
   describe '#initialize' do
-    subject(:menu) { described_class.new('./data/menu.json') }
-
     let(:items) do
       {
         "Cafe Latte" => 4.75,
@@ -26,6 +26,32 @@ describe Menu do
 
     it 'has a list of items with prices' do
       expect(menu.items).to include(items)
+    end
+  end
+
+  describe '#show' do
+    let(:printed_menu) do
+      <<~HEREDOC
+        1. Cafe Latte: $4.75
+        2. Flat White: $4.75
+        3. Cappucino: $3.85
+        4. Single Espresso: $2.05
+        5. Double Espresso: $3.75
+        6. Americano: $3.75
+        7. Cortado: $4.55
+        8. Tea: $3.65
+        9. Choc Mudcake: $6.40
+        10. Choc Mousse: $8.20
+        11. Affogato: $14.80
+        12. Tiramisu: $11.40
+        13. Blueberry Muffin: $4.05
+        14. Chocolate Chip Muffin: $4.05
+        15. Muffin Of The Day: $4.55
+      HEREDOC
+    end
+
+    it 'shows a list of items' do
+      expect(menu.show).to eq(printed_menu)
     end
   end
 end
