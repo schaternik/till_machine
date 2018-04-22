@@ -1,10 +1,11 @@
 require 'json'
 
 class Menu
-  attr_reader :items
+  attr_reader :items, :file_path
 
   def initialize(file_path)
-    parse_menu_items(file_path)
+    @file_path = file_path
+    parse_menu_items
   end
 
   def show
@@ -15,7 +16,7 @@ class Menu
   
   private
 
-  def parse_menu_items(file_path)
+  def parse_menu_items
     file = File.read(file_path)
     data = JSON.parse(file)
     @items = data.first['prices'].first
