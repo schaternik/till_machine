@@ -3,10 +3,9 @@
 ## Entities
 
 - Menu
-- MenuItem
 - Order
 - SubOrder
-- Till (?)
+- TillMachine
 
 ## How to use the CLI
 
