@@ -17,7 +17,7 @@ describe Order do
     it 'adds menu item with its quantity' do
       order.add('Tea', 2)
 
-      expect(order.basket).to eq [selected_product]
+      expect(order.basket).to eq selected_product
     end
 
     it 'adds a few products' do
@@ -25,6 +25,22 @@ describe Order do
       order.add('Americano', 1)
 
       expect(order.basket.size).to eq 2
+    end
+
+    it 'summarizes quantity of a product in a cart' do
+      order.add('Americano', 1)
+      order.add('Americano', 1)
+
+      expect(order.basket['Americano']).to eq 2
+    end
+  end
+
+  describe '#checkout' do
+    it 'counts a total price' do
+      order.add('Tea', 2)
+      order.add('Americano', 1)
+
+      expect(order.checkout).to eq(11.05)
     end
   end
 end
