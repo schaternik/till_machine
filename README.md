@@ -29,4 +29,8 @@ So that I can select items in menu
 As a User
 I'd like to check out
 So that I can see a bill
+
+As a User
+I'd like to get a receipt
+So that I can print a bill
 ```
