@@ -19,5 +19,7 @@ class Order
   end
 
   def print_bill
+    menu = JSON.parse(File.read('./data/menu.json'))
+    BillFormatter.new(order: self, menu: menu).text
   end
 end

@@ -2,7 +2,7 @@ require 'menu'
 
 describe Menu do
   subject(:menu) { described_class.new('./data/menu.json') }
-    
+
   describe '#initialize' do
     let(:items) do
       {

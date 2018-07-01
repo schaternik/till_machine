@@ -47,7 +47,7 @@ describe Order do
   describe '#print' do
     let(:receipt) do
       <<~HEREDOC
-        2013.11.10 08:08:43
+        #{Time.now.strftime('%Y.%m.%d %H:%M:%S')}
         The Coffee Connection
         123 Lakeside Way
         Phone: +1 (650) 360-0708
@@ -57,7 +57,7 @@ describe Order do
         Max,Sam,Deb,Sarah
           Cafe Latte          1 x 4.75
           Flat White          2 x 4.75
-          Cappuccino          1 x 3.85
+          Cappucino           1 x 3.85
           Choc Mudcake        2 x 6.40
           Choc Mousse         1 x 8.20
           Affogato           1 x 14.80
@@ -74,8 +74,13 @@ describe Order do
     end
 
     it 'prints a bill' do
-      order.add('Tea', 2)
-      order.add('Americation', 1)
+      order.add('Cafe Latte', 1)
+      order.add('Flat White', 2)
+      order.add('Cappucino', 1)
+      order.add('Choc Mudcake', 2)
+      order.add('Choc Mousse', 1)
+      order.add('Affogato', 1)
+      order.add('Tiramisu', 1)
 
       expect(order.print_bill).to eq(receipt)
     end
