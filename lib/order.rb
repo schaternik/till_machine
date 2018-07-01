@@ -14,7 +14,7 @@ class Order
     @menu ||= Menu.new('./data/menu.json')
 
     basket.keys.inject(0) do |total, item|
-      total += @menu.items[item] * basket[item]
+      total += @menu.prices[item] * basket[item]
     end
   end
 

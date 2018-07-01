@@ -45,7 +45,7 @@ class BillFormatter
 
     order.basket.inject('') do |output, item|
       name, quantity = item[0], item[1]
-      price = '%.2f' % @menu1.items[name]
+      price = '%.2f' % @menu1.prices[name]
       left_output = name.ljust(14)
       right_output = "#{quantity} x #{price}".rjust(14)
       output << "  #{left_output}#{right_output}\n"

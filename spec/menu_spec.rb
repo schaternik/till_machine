@@ -4,7 +4,7 @@ describe Menu do
   subject(:menu) { described_class.new('./data/menu.json') }
 
   describe '#initialize' do
-    let(:items) do
+    let(:prices) do
       {
         "Cafe Latte" => 4.75,
         "Flat White" => 4.75,
@@ -23,9 +23,24 @@ describe Menu do
         "Muffin Of The Day" => 4.55
       }
     end
+    let(:address) { "123 Lakeside Way" }
+    let(:shop_name) { "The Coffee Connection" }
+    let(:phone_number) { "16503600708" }
 
     it 'has a list of items with prices' do
-      expect(menu.items).to include(items)
+      expect(menu.prices).to include(prices)
+    end
+
+    it 'has a shop name' do
+      expect(menu.shop_name).to eq(shop_name)
+    end
+
+    it 'has a shop address' do
+      expect(menu.address).to eq(address)
+    end
+
+    it 'has a shop phone number' do
+      expect(menu.phone_number).to eq(phone_number)
     end
   end
 
