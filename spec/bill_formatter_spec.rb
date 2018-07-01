@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bill_formatter'
 
 describe BillFormatter do

@@ -10,7 +10,7 @@ class Menu
 
   def show
     prices.each_with_index.inject('') do |menu, (item, i)|
-      menu << "#{i + 1}. #{item[0]}: $#{'%.2f' % item[1]}\n"
+      menu << "#{i + 1}. #{item[0]}: $#{format('%.2f', item[1])}\n"
     end
   end
 
