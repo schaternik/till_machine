@@ -1,7 +1,7 @@
 class BillFormatter
   attr_reader :order, :menu
 
-  def initialize(order:, menu: menu)
+  def initialize(order:, menu:)
     @order = order
     @menu = menu
   end
@@ -39,12 +39,10 @@ class BillFormatter
   end
 
   def print_basket_content
-    @menu1 ||= Menu.new('./data/menu.json')
-
     order.basket.inject('') do |output, item|
       name = item[0]
       quantity = item[1]
-      price = format('%.2f', @menu1.prices[name])
+      price = format('%.2f', menu.prices[name])
       left_output = name.ljust(14)
       right_output = "#{quantity} x #{price}".rjust(14)
       output << "  #{left_output}#{right_output}\n"

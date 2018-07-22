@@ -1,5 +1,5 @@
 class Till
-  def initialize(menu: menu, order: order)
+  def initialize(menu:, order:)
     @menu = menu
     @order = order
   end
