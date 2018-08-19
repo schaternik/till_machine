@@ -47,7 +47,7 @@ class BillFormatter
       price = format('%.2f', menu.prices[name])
       left_output = name.ljust(14)
       right_output = "#{quantity} x #{price}".rjust(14)
-      output << "  #{left_output}#{right_output}\n"
+      output += "  #{left_output}#{right_output}\n"
     end.chomp
   end
 end
