@@ -18,8 +18,4 @@ class Order
       total += @menu.prices[item] * basket[item]
     end
   end
-
-  def print_bill
-    BillFormatter.new(order: self, menu: menu).text
-  end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BillFormatter
   attr_reader :order, :menu
 

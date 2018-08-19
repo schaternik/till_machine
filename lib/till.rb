@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 class Till
-  def initialize(menu:, order:)
+  def initialize(menu:, order:, formatter:)
     @menu = menu
     @order = order
+    @formatter = formatter
   end
 
   def show_menu
@@ -17,6 +20,6 @@ class Till
   end
 
   def print_bill
-    @order.print_bill
+    @formatter.text
   end
 end
