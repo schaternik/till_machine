@@ -18,8 +18,10 @@ class Menu
 
   private
 
+  attr_reader :file_path
+
   def parse_menu
-    file = File.read(@file_path)
+    file = File.read(file_path)
     data = JSON.parse(file).first
 
     @prices = data['prices'].first

@@ -8,18 +8,22 @@ class Till
   end
 
   def show_menu
-    @menu.show
+    menu.show
   end
 
   def add(item, quantity)
-    @order.add(item, quantity)
+    order.add(item, quantity)
   end
 
   def checkout
-    @order.checkout
+    order.checkout
   end
 
   def print_bill
-    @formatter.text
+    formatter.text
   end
+
+  private
+
+  attr_reader :menu, :order, :formatter
 end
