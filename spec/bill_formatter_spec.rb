@@ -4,8 +4,8 @@ require 'bill_formatter'
 
 describe BillFormatter do
   subject(:bill_formatter) { described_class.new(order: order, menu: menu) }
-  let(:order) { Order.new }
   let(:menu) { Menu.new('./data/menu.json') }
+  let(:order) { Order.new(menu: menu) }
   let(:receipt) do
     <<~HEREDOC
       #{Time.now.strftime('%Y.%m.%d %H:%M:%S')}

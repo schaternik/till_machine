@@ -3,9 +3,9 @@
 class Order
   attr_reader :basket, :menu
 
-  def initialize
+  def initialize(menu:)
     @basket = {}
-    @menu ||= Menu.new('./data/menu.json')
+    @menu = menu
   end
 
   def add(item, quantity)

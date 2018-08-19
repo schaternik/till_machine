@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 require 'order'
+require 'menu'
 
 describe Order do
-  subject(:order) { described_class.new }
+  let(:menu) { Menu.new('./data/menu.json') }
+  subject(:order) { described_class.new(menu: menu) }
 
   describe '#new' do
     it 'has an empty order basket' do

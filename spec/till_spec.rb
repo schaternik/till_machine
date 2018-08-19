@@ -3,7 +3,7 @@ require 'till'
 describe Till do
   subject(:till) { described_class.new(menu: menu, order: order) }
   let(:menu) { Menu.new('./data/menu.json') }
-  let(:order) { Order.new }
+  let(:order) { Order.new(menu: menu) }
   let(:printed_menu) do
     <<~HEREDOC
       1. Cafe Latte: $4.75
