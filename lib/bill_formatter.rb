@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
 class BillFormatter
-  attr_reader :order, :menu
-
-  def initialize(order:, menu:)
-    @order = order
+  def initialize(menu:, order:)
     @menu = menu
+    @order = order
   end
 
   def text
@@ -31,6 +29,8 @@ class BillFormatter
   end
 
   private
+
+  attr_reader :menu, :order
 
   def format_phone_number(phone_number)
     if phone_number =~ /^(\d{1})(\d{3})(\d{3})(\d{4})$/
