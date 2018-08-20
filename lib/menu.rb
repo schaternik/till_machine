@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'json'
 
 class Menu
@@ -10,14 +12,16 @@ class Menu
 
   def show
     prices.each_with_index.inject('') do |menu, (item, i)|
-      menu << "#{i + 1}. #{item[0]}: $#{format('%.2f', item[1])}\n"
+      menu += "#{i + 1}. #{item[0]}: $#{format('%.2f', item[1])}\n"
     end
   end
 
   private
 
+  attr_reader :file_path
+
   def parse_menu
-    file = File.read(@file_path)
+    file = File.read(file_path)
     data = JSON.parse(file).first
 
     @prices = data['prices'].first

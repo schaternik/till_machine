@@ -1,9 +1,9 @@
-class BillFormatter
-  attr_reader :order, :menu
+# frozen_string_literal: true
 
-  def initialize(order:, menu:)
-    @order = order
+class BillFormatter
+  def initialize(menu:, order:)
     @menu = menu
+    @order = order
   end
 
   def text
@@ -30,6 +30,8 @@ class BillFormatter
 
   private
 
+  attr_reader :menu, :order
+
   def format_phone_number(phone_number)
     if phone_number =~ /^(\d{1})(\d{3})(\d{3})(\d{4})$/
       "+#{Regexp.last_match(1)} (#{Regexp.last_match(2)}) #{Regexp.last_match(3)}-#{Regexp.last_match(4)}"
@@ -45,7 +47,7 @@ class BillFormatter
       price = format('%.2f', menu.prices[name])
       left_output = name.ljust(14)
       right_output = "#{quantity} x #{price}".rjust(14)
-      output << "  #{left_output}#{right_output}\n"
+      output += "  #{left_output}#{right_output}\n"
     end.chomp
   end
 end

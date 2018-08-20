@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Order
-  attr_reader :basket, :menu
+  attr_reader :basket
 
   def initialize(menu:)
     @basket = {}
@@ -15,11 +15,11 @@ class Order
 
   def checkout
     basket.keys.inject(0) do |total, item|
-      total += @menu.prices[item] * basket[item]
+      total += menu.prices[item] * basket[item]
     end
   end
 
-  def print_bill
-    BillFormatter.new(order: self, menu: menu).text
-  end
+  private
+
+  attr_reader :menu
 end
