@@ -1,5 +1,7 @@
 # Till Machine
 
+[![Build Status](https://travis-ci.org/schaternik/till_machine.svg?branch=master)](https://travis-ci.org/schaternik/till_machine)
+
 ## Entities
 
 - Menu
