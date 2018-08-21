@@ -1,6 +1,7 @@
 # Till Machine
 
 [![Build Status](https://travis-ci.org/schaternik/till_machine.svg?branch=master)](https://travis-ci.org/schaternik/till_machine)
+[![Maintainability](https://api.codeclimate.com/v1/badges/b98f3042589e9e6c7692/maintainability)](https://codeclimate.com/github/schaternik/till_machine/maintainability)
 
 ## Entities
 
